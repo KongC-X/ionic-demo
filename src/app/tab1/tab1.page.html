@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>首页</ion-title>
+    </ion-toolbar>
+    <ion-slides class="slides" paper="true" [options]="slideOpts">
+      <ion-slide class="img">
+        <img src="//m15.360buyimg.com/mobilecms/jfs/t1/32576/21/16968/76370/62ea5c84Ec5d3c7d3/121fad85357dfb43.jpg!cr_1053x420_4_0!q70.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="//m15.360buyimg.com/mobilecms/s1062x420_jfs/t1/219374/37/9895/379975/61d409aaE455d3578/168ff5869a75742f.jpg!cr_1053x420_4_0!q70.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="//m15.360buyimg.com/mobilecms/s1062x420_jfs/t1/222811/32/16587/108963/62e2725eEb19c9b24/cb7813a6aa0bb2ca.jpg!cr_1053x420_4_0!q70.jpg">
+      </ion-slide>
+    </ion-slides>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let news of pageContentList" routerLink="/tab-detail">
+        <ion-thumbnail slot="end">  <!--图片边框是方形，且居右("end")-->
+          <!--必须要将class写在前面，否则无法实现圆角-->
+            <img class="roundedSquareImg" src={{news.imgUrl}}>   <!--调用ts中pageContentList中的imgUrl部分-->
+        </ion-thumbnail>
+        <ion-label>
+            <h3>{{news.title}}</h3>
+            <p>{{news.content}}</p>
+        </ion-label>
+    </ion-item>
+</ion-list>
+
+<ion-button color="basics" (click)="presentAlert()">basics</ion-button>
+<ion-button color="primary" (click)="presentAlert()">primary</ion-button>
+<ion-button color="secondary" (click)="presentAlert()">secondary</ion-button>
+<ion-button color="success" (click)="presentAlert()">success</ion-button>
+
+</ion-content>

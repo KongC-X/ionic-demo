@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button color="clear" size="small" slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-button>
+    <ion-title>详情</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>为什么推荐使用async?</h2>
+  <p>
+    开发中无论怎样都会产生网络请求，这样一来自然也就避免不了大量使用 then、catch 或 try catch 来捕获错误，而捕获错误的代码量是随着网络请求的增多而增多，那应该如何优雅的系统性捕获某个网络请求中所产生的所有错误呢？
+  </p>
+  <p>
+    首先最常用的两种处理网络请求的形式即 Promise 与 async(事实上很多请求库都是基于这两者的封装)，使用 Promise 那必然要与 then、catch 挂钩，也就是说每个请求都对应一个 Promise 实例，然后通过该实例上对应的方法来完成对应的操作，这应该算是比较常用的一种形式了
+  </p>
+  <p>
+    但如果涉及嵌套请求，那可能还要不断的增加 then、catch 来完成需求，好了，现在可以使用看起来真的像同步编程的 async 来着手优化了，即 await promise,那这种情况下就根本不需要手动 then 了，但如果 await promise 抛出了错误呢？那恐怕不得不让 try catch 来帮忙了，而如果也是嵌套请求，那与 Promise 写法类似的问题又来了，有多少次请求难道我就要多少次 try catch 吗?那这样看来的话,Promise 与 async 在面对这种屎山请求的时候确实有点心有余而力不足了
+  </p>
+
+</ion-content>
